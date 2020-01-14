@@ -50,6 +50,7 @@ class StatsdReporter {
         const url = this.currItem.request.url.toString();
         const path = url.replace(/^(?:http(s)?:\/\/)?[\w.-]+/, '');
         const method = this.currItem.request.method;
+        const headers = this.currItem.request.headers;
 
         const prefix = this.reporterOptions.prefix;
         const responseCode = (this.currItem.response && this.currItem.response.code) || "0";
@@ -69,7 +70,7 @@ class StatsdReporter {
         }
 
         //console.log(`##statsd[Debug labels='${labels}']`)
-        console.log(`##statsd[${new Date().getTime()} testFinished url='${url}' path='${path}' method='${method}' responseCode='${responseCode}' duration='${duration}']`);
+        console.log(`##statsd[${new Date().getTime()} testFinished headers='${headers}' url='${url}' path='${path}' method='${method}' responseCode='${responseCode}' duration='${duration}']`);
     }
 
     done(err, args) {
