@@ -1,0 +1,25 @@
+{
+  "name": "newman-reporter-statsd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "statsd-client": "^0.4.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfgoric/newman-statsd-reporter.git"
+  },
+  "keywords": [
+    "newman"
+  ],
+  "author": "Ihor Putria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rfgoric/newman-statsd-reporter/issues"
+  },
+  "homepage": "https://github.com/rfgoric/newman-statsd-reporter#readme"
+}
