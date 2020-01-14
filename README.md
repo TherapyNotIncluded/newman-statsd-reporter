@@ -31,7 +31,7 @@ The `--reporter-statsd-host` is the destination ip address.
 The `--reporter-statsd-port` is the destination port.
 
 ```
-newman run <collection-url> -r statsd --reporter-statsd-destination <ip-address> --reporter-statsd-port <port-number>
+newman run <collection-url> -r statsd --reporter-statsd-host <ip-address> --reporter-statsd-port <port-number>
 ```
 
 The output will be sent to statsd via UDP.
