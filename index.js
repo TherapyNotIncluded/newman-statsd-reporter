@@ -68,7 +68,6 @@ class StatsdReporter {
             this.statsd.increment(`${prefix}_failed_tests,${labels}`);
         }
 
-        //console.log(`##statsd[Debug labels='${labels}']`)
         console.log(`##statsd[${new Date().getTime()} testFinished url='${url}' path='${path}' method='${method}' responseCode='${responseCode}' duration='${duration}']`);
     }
 
