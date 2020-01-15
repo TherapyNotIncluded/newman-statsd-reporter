@@ -56,17 +56,15 @@ class StatsdReporter {
         const duration = (this.currItem.response && this.currItem.response.responseTime) || 0;
 
         const labels = `path=${path},method=${method},code=${responseCode}`;
+        const passed = "passed";
+
+        if (!this.currItem.passed) {
+            passed = "failed";
+        }
 
         this.statsd.increment(`${prefix}_requests,${labels}`);
         this.statsd.gauge(`${prefix}_duration,${labels}`, `${duration}`);
-
-        if (this.currItem.passed) {
-            this.statsd.increment(`${prefix}_passed_tests,${labels}`);
-        }
-
-        if (!this.currItem.passed) {
-            this.statsd.increment(`${prefix}_failed_tests,${labels}`);
-        }
+        this.statsd.increment(`${prefix}_tests,state=${passed},${labels}`);
 
         console.log(`##statsd[${new Date().getTime()} testFinished url='${url}' path='${path}' method='${method}' responseCode='${responseCode}' duration='${duration}']`);
     }
