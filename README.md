@@ -30,7 +30,7 @@ The `--reporter-statsd-host` is the destination ip address.
 
 The `--reporter-statsd-port` is the destination port.
 
-The `--reporter-statsd-prefix` is the prefix of statsd metrics, by default it is set to "newman_report".
+The `--reporter-statsd-prefix` is the prefix of statsd metrics, by default it is set to `newman_report`.
 
 ```
 newman run <collection-url> -r statsd --reporter-statsd-host <ip-address> --reporter-statsd-port <port-number>
