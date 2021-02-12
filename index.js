@@ -49,8 +49,6 @@ class StatsdReporter {
     item(err, args) {
         const url = this.currItem.request.url.toString();
         const path = url.replace(/^(?:http(s)?:\/\/)?[\w.-]+/, '');
-        // Remove trailing slash to avoid duplications
-        path = path.replace(/\/$/, '');
         const method = this.currItem.request.method;
 
         const prefix = this.reporterOptions.prefix;
