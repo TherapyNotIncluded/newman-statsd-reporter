@@ -55,7 +55,7 @@ class StatsdReporter {
         const responseCode = (this.currItem.response && this.currItem.response.code) || "0";
         const duration = (this.currItem.response && this.currItem.response.responseTime) || 0;
 
-        const labels = `path=${path},method=${method},code=${responseCode}`;
+        const labels = `path=${path.replace(/\/$/, '')},method=${method},code=${responseCode}`;
         const passed = "passed";
 
         if (!this.currItem.passed) {
