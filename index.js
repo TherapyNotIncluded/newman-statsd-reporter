@@ -28,7 +28,7 @@ class StatsdReporter {
     }
 
     beforeItem(err, args) {
-        this.currItem = {name: this.itemName(args.item), passed: true, failedAssertions: []};
+        this.currItem = { name: this.itemName(args.item), passed: true, failedAssertions: [] };
         console.log(`##statsd[${new Date().getTime()} testStarted name='${this.currItem.name}']`);
     }
 
@@ -49,6 +49,8 @@ class StatsdReporter {
     item(err, args) {
         const url = this.currItem.request.url.toString();
         const path = url.replace(/^(?:http(s)?:\/\/)?[\w.-]+/, '');
+        // Remove trailing slash to avoid duplications
+        path = url.replace(/\/$/, '');
         const method = this.currItem.request.method;
 
         const prefix = this.reporterOptions.prefix;
