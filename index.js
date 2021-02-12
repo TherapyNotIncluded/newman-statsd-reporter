@@ -66,7 +66,7 @@ class StatsdReporter {
         this.statsd.gauge(`${prefix}_duration,${labels}`, `${duration}`);
         this.statsd.increment(`${prefix}_tests,state=${passed},${labels}`);
 
-        console.log(`##statsd[${new Date().getTime()} testFinished url='${url}' path='${path}' method='${method}' responseCode='${responseCode}' duration='${duration}']`);
+        console.log(`##statsd[${new Date().getTime()} testFinished url='${url}' path='${path.replace(/\/$/, '')}' method='${method}' responseCode='${responseCode}' duration='${duration}']`);
     }
 
     done(err, args) {
